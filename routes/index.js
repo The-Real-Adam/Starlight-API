@@ -1,16 +1,17 @@
-var express = require('express');
-var router = express.Router();
+const knex = require('../knex');
+const express = require('express');
+const router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   knex('cans')
-    .select('id')
-    .then((sheet) => {
-      if (sheet.length < 1) {
+    .select('id','name','serial', 'size', 'requiresMaintenance', 'outOfService', 'source', 'startDate', 'hazardous', 'action', 'timestamp', 'createdBy', 'createdDate', 'modifiedBy', 'modifiedDate', 'attachment', 'deleted')
+    .then((can) => {
+      if (can.length < 1) {
         return res.sendStatus(404)
       }
       res.setHeader('Content-Type', 'application/json')
-      res.send(JSON.stringify(sheet))
+      res.send(JSON.stringify(can))
     })
     .catch((err) => next(err))
 });
