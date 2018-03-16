@@ -1,67 +1,67 @@
 
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('cans', (table) => {
+  return knex.schema.createTable("cans", (table) => {
 
     table.increments()
 
-    table.varchar('name', 10)
+    table.varchar("name", 10)
       .notNullable()
-      .defaultTo('')
+      .defaultTo("")
 
-    table.varchar('serial', 10)
+    table.varchar("serial", 10)
       .notNullable()
-      .defaultTo('')
+      .defaultTo("")
 
-    table.varchar('size', 10)
+    table.varchar("size", 10)
       .notNullable()
-      .defaultTo('')
+      .defaultTo("")
 
-    table.integer('requiresMaintenance')
-      .notNullable()
-      .defaultTo(0)
-
-    table.integer('outOfService')
+    table.integer("requiresMaintenance")
       .notNullable()
       .defaultTo(0)
 
-    table.varchar('source', 20)
-      .notNullable()
-      .defaultTo('')
-
-    table.varchar('startDate', 30)
-      .notNullable()
-      .defaultTo('')
-
-    table.integer('hazardous')
+    table.integer("outOfService")
       .notNullable()
       .defaultTo(0)
 
-    table.varchar('action', 20)
+    table.varchar("source", 30)
+      .notNullable()
+      .defaultTo("")
+
+    table.varchar("startDate", 30)
+      .notNullable()
+      .defaultTo("")
+
+    table.integer("hazardous")
+      .notNullable()
+      .defaultTo(0)
+
+    table.varchar("action", 30)
       .defaultTo(null)
 
-    table.varchar('timestamp', 30)
+    table.varchar("timestamp", 30)
       .notNullable()
-      .defaultTo('')
+      .defaultTo("")
 
-    table.varchar('createdBy', 20)
+    table.varchar("createdBy", 30)
       .defaultTo(null)
 
-    table.varchar('createdDate', 30)
+    table.varchar("createdDate", 30)
       .notNullable()
-      .defaultTo('')
+      .defaultTo("")
 
-    table.varchar('modifiedBy', 20)
+    table.varchar("modifiedBy", 30)
       .defaultTo(null)
 
-    table.varchar('modifiedDate', 30)
+    table.varchar("modifiedDate", 30)
       .notNullable()
-      .defaultTo('')
+      .defaultTo("")
 
-    table.varchar('attachment', 10)
+    table.varchar("attachment", 10)
       .notNullable()
-      .defaultTo('')
+      .defaultTo("")
 
-    table.integer('deleted')
+    table.integer("deleted")
       .notNullable()
       .defaultTo(0)
 
@@ -71,5 +71,5 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTableIfExists('cans')
+  return knex.schema.dropTableIfExists("cans")
 };

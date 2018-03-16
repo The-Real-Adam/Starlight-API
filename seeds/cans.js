@@ -1,10 +1,10 @@
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('cans').del()
+  return knex("cans").del()
     .then(function () {
       // Inserts seed entries
-      return knex('cans').insert([
+      return knex("cans").insert(
         [{
           "id": 2521,
           "name": "0001",
@@ -581,7 +581,6 @@ exports.seed = function(knex, Promise) {
           "modifiedDate": "2017-06-07T18:14:48.128Z",
           "attachment": "hook",
           "deleted": 0
-        }]
-      ]);
+        }]);
     });
 };
