@@ -16,13 +16,21 @@ app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
+app.use(function(req, res, next) {
+  res.header({'Access-Control-Allow-Origin': 'http://localhost:3001'})
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Authorization, Accept, x-token')
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PATCH, DELETE')
+  next()
+})
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/cans', index);
+app.use('/', index);
 app.use('/users', users);
 
 // catch 404 and forward to error handler

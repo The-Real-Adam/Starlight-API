@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/cans', function(req, res, next) {
   knex('cans')
     .select('id','name','serial', 'size', 'requiresMaintenance', 'outOfService', 'source', 'startDate', 'hazardous', 'action', 'timestamp', 'createdBy', 'createdDate', 'modifiedBy', 'modifiedDate', 'attachment', 'deleted')
     .then((can) => {
